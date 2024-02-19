@@ -3,9 +3,6 @@ from tkinter import *
 from tkinter import ttk
 # from customtkinter import *
 
-# udelame změny a co s toho?
-zmeny = 1
-zmeny2 = 2
 
 window = Tk()
 window.geometry("600x400")
