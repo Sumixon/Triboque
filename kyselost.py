@@ -145,8 +145,10 @@ logo_label = Label(tab2, image=logo, height=50, width=130, borderwidth=0)
 logo_label.place(x=470, y=0)
 logo_label = Label(tab3, image=logo, height=50, width=130, borderwidth=0)
 logo_label.place(x=470, y=0)
-nazev_label = Label(tab1, text="Stanovení čísla kyselosti.", font=("Helvetica", 22), background=main_color)
-nazev_label.place(x=5, y=5)
+nazev_label_tab1 = Label(tab1, text="Stanovení čísla kyselosti.", font=("Helvetica", 22), background=main_color)
+nazev_label_tab1.place(x=5, y=5)
+nazev_label_tab2 = Label(tab2, text="Stanovení hustoty roztoku.", font=("Helvetica", 22), background=main_color)
+nazev_label_tab2.place(x=5, y=5)
 
 # Proměnné labels
 
