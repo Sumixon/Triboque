@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import *
 from tkinter import ttk
+
 # from customtkinter import *
 
 
@@ -151,6 +152,7 @@ nazev_label_tab2 = Label(tab2, text="Stanovení hustoty roztoku.", font=("Helvet
 nazev_label_tab2.place(x=5, y=5)
 
 # Proměnné labels
+#######TAB1########
 
 eq1_label = Label(main_frame1, text="EQ1", background=main_color, font=main_font, padx=25, pady=5)
 eq1_label.grid(row=0, column=0)
@@ -170,7 +172,21 @@ w_label.grid(row=4, column=0)
 f1_label = Label(main_frame1, text="F1", background=main_color, font=main_font, padx=5, pady=5)
 f1_label.grid(row=5, column=0)
 
+# Proměnné labels
+#######TAB2########
+
+m1_label = Label(main_frame2, text="m1", background=main_color, font=main_font, padx=25, pady=5)
+m1_label.grid(row=0, column=0)
+
+m2_label = Label(main_frame2, text="m2", background=main_color, font=main_font, pady=5)
+m2_label.grid(row=1, column=0)
+
+m_label = Label(main_frame2, text="m", background=main_color, font=main_font, padx=5, pady=5)
+m_label.grid(row=2, column=0)
+
+
 # Vstupy proměnných
+#######TAB1########
 
 eq1_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, justify=CENTER)
 eq1_entry.grid(row=0, column=1)
@@ -192,7 +208,21 @@ f1_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, j
 f1_entry.insert(0, 1)
 f1_entry.grid(row=5, column=1)
 
+# Vstupy proměnných
+#######TAB2########
+
+m1_entry = Entry(main_frame2, background=main_color, font=main_font, width=15, justify=CENTER)
+m1_entry.grid(row=0, column=1)
+
+m2_entry = Entry(main_frame2, background=main_color, font=main_font, width=15, justify=CENTER)
+m2_entry.grid(row=1, column=1)
+
+m_entry = Label(main_frame2, background=main_color, font=main_font, width=15, justify=CENTER,
+                       highlightthickness=1, highlightbackground="black")
+m_entry.grid(row=2, column=1)
+
 # Popisy proměnných
+#######TAB1########
 
 eq1_label = Label(main_frame1, text="Spotřeba titru v bodě ekvivalence (ml)", background=main_color, font=main_font,
                   padx=15, pady=5)
@@ -214,7 +244,29 @@ w_label.grid(row=4, column=2, sticky=W)
 f1_label = Label(main_frame1, text="Faktor", background=main_color, font=main_font, padx=15, pady=5)
 f1_label.grid(row=5, column=2, sticky=W)
 
+# Popisy proměnných
+#######TAB2########
+
+m1_label = Label(main_frame2, text="Hmotnost suchého piknometru (g)", background=main_color, font=main_font,
+                  padx=15, pady=5)
+m1_label.grid(row=0, column=2, sticky=W)
+
+m2_label = Label(main_frame2, text="Hmotnost pinkometru s kapalinou (g)", background=main_color, font=main_font, padx=15, pady=5)
+m2_label.grid(row=1, column=2, sticky=W)
+
+m_label = Label(main_frame2, text="Rozdíl váhy m2 -m1", background=main_color, font=main_font, padx=15, pady=5)
+m_label.grid(row=2, column=2, sticky=W)
+
+# Dropdownmenu
+#######TAB2########
+vaha = StringVar(main_frame2)
+vaha.set("10")
+piknom = OptionMenu(main_frame2, vaha, "10", "20", "30")
+piknom.grid(row=3, column=0)
+
 # Button
+#######TAB1########
+
 start_button = Button(main_frame1, borderwidth=2, text="Vypočítej", bg=main_color, activebackground=main_color, padx=15,
                       pady=15,
                       font=main_font, overrelief="solid", highlightthickness=1, highlightbackground=main_color,
@@ -222,6 +274,7 @@ start_button = Button(main_frame1, borderwidth=2, text="Vypočítej", bg=main_co
 start_button.grid(row=6, column=0, padx=15, pady=15)
 
 # Výsledek labels
+#######TAB1########
 
 vysledek_label = Label(main_frame1, text="", background=main_color, font=main_font, padx=15, pady=5,
                        highlightthickness=1, highlightbackground="black", width=12)
@@ -231,7 +284,8 @@ vysledek_popis_label = Label(main_frame1, text="mg KOH / 1g oleje", background=m
                              pady=5)
 vysledek_popis_label.grid(row=6, column=2, sticky=W)
 
-# Proměnné
+# Výsledek labels
+#######TAB2########
 
 
 window.mainloop()
