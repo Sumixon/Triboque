@@ -25,7 +25,7 @@ nb.add(tab2, text="Roztoky")
 tab3 = tkinter.Frame(window, borderwidth=1, highlightcolor="black", background=main_color)
 nb.add(tab3, text="O programu")
 
-nb.select(tab1)
+nb.select(tab2)
 nb.enable_traversal()
 
 # Logo
@@ -259,9 +259,18 @@ m_label.grid(row=2, column=2, sticky=W)
 
 # Dropdownmenu
 #######TAB2########
+parametry = [
+    u"10",
+    u"20",
+    u"30",
+    u"50",
+    u"100"
+]
 vaha = StringVar(main_frame2)
-vaha.set("10")
-piknom = OptionMenu(main_frame2, vaha, "10", "20", "30")
+vaha.set(parametry[0])
+piknom = OptionMenu(main_frame2, vaha, *parametry)
+piknom.config(font=main_font, bg=main_color, fg="grey", relief='solid', pady=5, padx=5, bd=1,
+activebackground='grey', activeforeground='blue')
 piknom.grid(row=3, column=0)
 
 # Button
