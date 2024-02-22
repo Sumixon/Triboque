@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import ttk
 
 # from customtkinter import *
-#test commitu
+
 
 window = Tk()
 window.geometry("600x400")
