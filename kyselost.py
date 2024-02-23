@@ -13,6 +13,7 @@ window.title("Triboque, software na stanovení kyselosti oleje.")
 
 # Definice barev a písma
 main_font = ("Helvetica", 12)
+vysledek_font = ("Helvetica", 16)
 main_color = "#b29bc2"
 
 # Záložky programu
@@ -29,7 +30,11 @@ nb.select(tab2)
 nb.enable_traversal()
 
 # Logo
-logo = PhotoImage(file="img/logo_male130x50.png")
+logo = PhotoImage(file="img/sumixon130x50_black.png")
+# Vzorec
+vzorec = PhotoImage(file="img/vzorec.png")
+# Piknometr
+piknometr = PhotoImage(file="img/pikno100x145.png")
 
 
 # Funkce
@@ -142,7 +147,7 @@ main_frame3.place(x=0, y=50, width=600, height=350)
 
 logo_label = Label(tab1, image=logo, height=50, width=130, borderwidth=0, justify=RIGHT)
 logo_label.place(x=470, y=0)
-logo_label = Label(tab2, image=logo, height=50, width=130, borderwidth=0)
+logo_label = Label(tab2, image=logo, height=50, width=130, borderwidth=0, background=main_color)
 logo_label.place(x=470, y=0)
 logo_label = Label(tab3, image=logo, height=50, width=130, borderwidth=0)
 logo_label.place(x=470, y=0)
@@ -257,6 +262,14 @@ m2_label.grid(row=1, column=2, sticky=W)
 m_label = Label(main_frame2, text="Rozdíl váhy m2 -m1", background=main_color, font=main_font, padx=15, pady=5)
 m_label.grid(row=2, column=2, sticky=W)
 
+# Img
+# ######TAB2########
+
+vzorec_label = Label(main_frame2, image=vzorec, background=main_color, pady=10)
+vzorec_label.grid(row=6, column=2, sticky=W)
+piknometr_label = Label(main_frame2, image=piknometr, background=main_color)
+piknometr_label.place(x=480, y=120)
+
 # Dropdownmenu
 # ######TAB2########
 parametry = [
@@ -272,11 +285,11 @@ piknom = OptionMenu(main_frame2, vaha, *parametry)
 piknom.config(font=main_font, bg=main_color, fg="black", pady=5, padx=5, bd=1,
               activebackground=main_color, activeforeground='blue', width=4, borderwidth=0, highlightbackground="black",
               highlightthickness=1, relief="sunken")
-piknom.grid(row=3, column=0, padx=10)
+piknom.place(x=250, y=250)
 
 drop_label = Label(main_frame2, text="Zvolte objem piknometru ! (ml)", background=main_color, font=main_font,
                    padx=15, pady=5)
-drop_label.grid(row=3, column=2, sticky=W)
+drop_label.place(x=230, y=210)
 
 # Button
 # ######TAB1########
@@ -286,6 +299,14 @@ start_button = Button(main_frame1, borderwidth=2, text="Vypočítej", bg=main_co
                       font=main_font, overrelief="solid", highlightthickness=1, highlightbackground=main_color,
                       command=vypocitej)
 start_button.grid(row=6, column=0, padx=15, pady=15)
+
+# Button
+# ######TAB2########
+start_button1 = Button(main_frame2, borderwidth=2, text="Vypočítej", bg=main_color, activebackground=main_color,
+                       padx=15, pady=15, font=main_font, overrelief="solid", highlightthickness=1,
+                       highlightbackground=main_color,
+                       command=vypocitej)
+start_button1.place(x=10, y=190)
 
 # Výsledek labels
 # ######TAB1########
@@ -300,6 +321,8 @@ vysledek_popis_label.grid(row=6, column=2, sticky=W)
 
 # Výsledek labels
 # ######TAB2########
-
+vysledek_label1 = Label(main_frame2, text="huráhurá", background=main_color, font=vysledek_font, padx=0, pady=15,
+                        highlightthickness=1, highlightbackground="black", width=15)
+vysledek_label1.place(x=10, y=120)
 
 window.mainloop()
