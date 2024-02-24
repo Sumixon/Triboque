@@ -58,17 +58,13 @@ def vypocitej():
     else:
         t = float(t_text)
     # M - molární hmotnost
-    m_text = m_entry.get()
-    if m_text.__contains__(","):
-        m = float(m_text.replace(",", "."))
+    m = 56.1
+
+    v_text = v_entry.get()
+    if v_text.__contains__(","):
+        w = float(v_text.replace(",", "."))
     else:
-        m = float(m_text)
-    # W - Hmotnost oleje
-    w_text = w_entry.get()
-    if w_text.__contains__(","):
-        w = float(w_text.replace(",", "."))
-    else:
-        w = float(w_text)
+        w = float(v_text)
     f1_text = f1_entry.get()
     if f1_text.__contains__(","):
         f1 = float(f1_text.replace(",", "."))
@@ -108,11 +104,11 @@ def vypocitej_enter(event):
     else:
         m = float(m_text)
     # W - Hmotnost oleje
-    w_text = w_entry.get()
-    if w_text.__contains__(","):
-        w = float(w_text.replace(",", "."))
+    v_text = v_entry.get()
+    if v_text.__contains__(","):
+        w = float(v_text.replace(",", "."))
     else:
-        w = float(w_text)
+        v = float(v_text)
     f1_text = f1_entry.get()
     if f1_text.__contains__(","):
         f1 = float(f1_text.replace(",", "."))
@@ -121,7 +117,7 @@ def vypocitej_enter(event):
 
     # výpočet enter
 
-    tan = round(((eq1 - b) * t * m * f1) / (w * f1), 2)
+    tan = round(((eq1 - b) * t * m * f1) / (v * f1), 2)
 
     vysledek_label["text"] = tan
 
@@ -171,8 +167,8 @@ t_label.grid(row=2, column=0)
 m_label = Label(main_frame1, text="M", background=main_color, font=main_font, padx=5, pady=5)
 m_label.grid(row=3, column=0)
 
-w_label = Label(main_frame1, text="V", background=main_color, font=main_font, padx=5, pady=5)
-w_label.grid(row=4, column=0)
+v_label = Label(main_frame1, text="V", background=main_color, font=main_font, padx=5, pady=5)
+v_label.grid(row=4, column=0)
 
 f1_label = Label(main_frame1, text="F1", background=main_color, font=main_font, padx=5, pady=5)
 f1_label.grid(row=5, column=0)
@@ -181,13 +177,13 @@ f1_label.grid(row=5, column=0)
 # ######TAB2########
 
 m1_label = Label(main_frame2, text="m1", background=main_color, font=main_font, padx=25, pady=5)
-m1_label.grid(row=0, column=0)
+m1_label.grid(row=0, column=0, sticky=W)
 
-m2_label = Label(main_frame2, text="m2", background=main_color, font=main_font, pady=5)
-m2_label.grid(row=1, column=0)
+m2_label = Label(main_frame2, text="m2", background=main_color, font=main_font, padx=25, pady=5)
+m2_label.grid(row=1, column=0, sticky=W)
 
-m_label = Label(main_frame2, text="m", background=main_color, font=main_font, padx=5, pady=5)
-m_label.grid(row=2, column=0)
+m_label = Label(main_frame2, text="m", background=main_color, font=main_font, padx=25, pady=5)
+m_label.grid(row=2, column=0, sticky=W)
 
 # Vstupy proměnných
 # ######TAB1########
@@ -205,8 +201,8 @@ m_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, ju
 m_entry.insert(0, "56.1")
 m_entry.grid(row=3, column=1)
 
-w_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, justify=CENTER)
-w_entry.grid(row=4, column=1)
+v_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, justify=CENTER)
+v_entry.grid(row=4, column=1)
 
 f1_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, justify=CENTER)
 f1_entry.insert(0, "1")
@@ -242,8 +238,8 @@ m_label = Label(main_frame1, text="Molární hmotnost titru (g/mol)", background
                 pady=5)
 m_label.grid(row=3, column=2, sticky=W)
 
-w_label = Label(main_frame1, text="Hmotnost oleje (g)", background=main_color, font=main_font, padx=15, pady=5)
-w_label.grid(row=4, column=2, sticky=W)
+v_label = Label(main_frame1, text="Hmotnost oleje (g)", background=main_color, font=main_font, padx=15, pady=5)
+v_label.grid(row=4, column=2, sticky=W)
 
 f1_label = Label(main_frame1, text="Faktor", background=main_color, font=main_font, padx=15, pady=5)
 f1_label.grid(row=5, column=2, sticky=W)
@@ -266,7 +262,7 @@ m_label.grid(row=2, column=2, sticky=W)
 # ######TAB2########
 
 vzorec_label = Label(main_frame2, image=vzorec, background=main_color, pady=10)
-vzorec_label.grid(row=6, column=2, sticky=W)
+vzorec_label.place(x=270, y=100)
 piknometr_label = Label(main_frame2, image=piknometr, background=main_color)
 piknometr_label.place(x=480, y=120)
 
@@ -305,8 +301,8 @@ start_button.grid(row=6, column=0, padx=15, pady=15)
 start_button1 = Button(main_frame2, borderwidth=2, text="Vypočítej", bg=main_color, activebackground=main_color,
                        padx=15, pady=15, font=main_font, overrelief="solid", highlightthickness=1,
                        highlightbackground=main_color,
-                       command=vypocitej)
-start_button1.place(x=10, y=190)
+                       )
+start_button1.place(x=28, y=190)
 
 # Výsledek labels
 # ######TAB1########
@@ -322,7 +318,7 @@ vysledek_popis_label.grid(row=6, column=2, sticky=W)
 # Výsledek labels
 # ######TAB2########
 vysledek_label1 = Label(main_frame2, text="huráhurá", background=main_color, font=vysledek_font, padx=0, pady=15,
-                        highlightthickness=1, highlightbackground="black", width=15)
-vysledek_label1.place(x=10, y=120)
+                        highlightthickness=1, highlightbackground="black", width=16)
+vysledek_label1.place(x=28, y=120)
 
 window.mainloop()
