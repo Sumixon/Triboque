@@ -38,8 +38,55 @@ piknometr = PhotoImage(file="img/pikno100x145.png")
 
 
 # Funkce
+# Stanovení kyselosti
 def vypocitej():
     # EQ1 - spotřeba titru
+    eq1_text = eq1_entry.get()
+    if eq1_text.__contains__(","):
+        eq1 = float(eq1_text.replace(",", "."))
+    else:
+        eq1 = float(eq1_text)
+
+    # B - Blank
+    b_text = b_entry.get()
+    if b_text.__contains__(","):
+        b = float(b_text.replace(",", "."))
+    else:
+        b = float(b_text)
+    # T - koncetrace titru
+    t_text = t_entry.get()
+    if t_text.__contains__(","):
+        t = float(t_text.replace(",", "."))
+    else:
+        t = float(t_text)
+    # M - molární hmotnost
+    m = 56.1
+
+# Hmotnost oleje
+    v_text = v_entry.get()
+    if v_text.__contains__(","):
+        v = float(v_text.replace(",", "."))
+    else:
+        v = float(v_text)
+
+# Index
+
+    f1_text = f1_entry.get()
+    if f1_text.__contains__(","):
+        f1 = float(f1_text.replace(",", "."))
+    else:
+        f1 = float(f1_text)
+
+    # výpočet
+
+    tan = round(((eq1 - b) * t * m * f1) / (v * f1), 2)
+
+    vysledek_label["text"] = tan
+
+
+def vypocitej_enter(event):
+    # EQ1 - spotřeba titru
+
     eq1_text = eq1_entry.get()
     if eq1_text.__contains__(","):
         eq1 = float(eq1_text.replace(",", "."))
@@ -59,56 +106,21 @@ def vypocitej():
         t = float(t_text)
     # M - molární hmotnost
     m = 56.1
+    # m_text = m_entry.get()
+    # if m_text.__contains__(","):
+    #     m = float(m_text.replace(",", "."))
+    # else:
+    #     m = float(m_text)
 
-    v_text = v_entry.get()
-    if v_text.__contains__(","):
-        w = float(v_text.replace(",", "."))
-    else:
-        w = float(v_text)
-    f1_text = f1_entry.get()
-    if f1_text.__contains__(","):
-        f1 = float(f1_text.replace(",", "."))
-    else:
-        f1 = float(f1_text)
-
-    # výpočet
-
-    tan = round(((eq1 - b) * t * m * f1) / (w * f1), 2)
-
-    vysledek_label["text"] = tan
-
-
-def vypocitej_enter(event):
-    # EQ1 - spotřeba titru
-    eq1_text = eq1_entry.get()
-    if eq1_text.__contains__(","):
-        eq1 = float(eq1_text.replace(",", "."))
-    else:
-        eq1 = float(eq1_text)
-    # B - Blank
-    b_text = b_entry.get()
-    if b_text.__contains__(","):
-        b = float(b_text.replace(",", "."))
-    else:
-        b = float(b_text)
-    # T - koncetrace titru
-    t_text = t_entry.get()
-    if t_text.__contains__(","):
-        t = float(t_text.replace(",", "."))
-    else:
-        t = float(t_text)
-    # M - molární hmotnost
-    m_text = m_entry.get()
-    if m_text.__contains__(","):
-        m = float(m_text.replace(",", "."))
-    else:
-        m = float(m_text)
     # W - Hmotnost oleje
     v_text = v_entry.get()
     if v_text.__contains__(","):
         w = float(v_text.replace(",", "."))
     else:
         v = float(v_text)
+
+    # Index
+
     f1_text = f1_entry.get()
     if f1_text.__contains__(","):
         f1 = float(f1_text.replace(",", "."))
@@ -125,6 +137,28 @@ def vypocitej_enter(event):
 # Entr pro výpočet
 
 window.bind("<Return>", vypocitej_enter)
+
+
+# Funkce
+# Roztoky
+
+def hustota():
+    m1_text = m1_entry.get()
+    if m1_text.__contains__(","):
+        m1_text.replace(",", ".")
+        m1 = float(m1_text)
+    else:
+        m1 = float(m1_text)
+
+    m2_text = m2_entry.get()
+    if m2_text.__contains__(","):
+        m2_text.replace(",", ".")
+        m2 = float(m2_text)
+    else:
+        m2 = float(m2_text)
+
+
+
 
 # Framy
 
