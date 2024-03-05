@@ -40,103 +40,55 @@ piknometr = PhotoImage(file="img/pikno100x145.png")
 
 
 # Funkce
+# Global funkce
+def prevod(entry):
+    text = entry.get()
+    if text.__contains__(","):
+        return float(text.replace(",", "."))
+    else:
+        return float(text)
+
+
 # Stanovení kyselosti
 def vypocitej():
     # EQ1 - spotřeba titru
-    eq1_text = eq1_entry.get()
-    if eq1_text.__contains__(","):
-        eq1 = float(eq1_text.replace(",", "."))
-    else:
-        eq1 = float(eq1_text)
-
+    eq1 = prevod(eq1_entry)
     # B - Blank
-    b_text = b_entry.get()
-    if b_text.__contains__(","):
-        b = float(b_text.replace(",", "."))
-    else:
-        b = float(b_text)
+    b = prevod(b_entry)
     # T - koncetrace titru
-    t_text = t_entry.get()
-    if t_text.__contains__(","):
-        t = float(t_text.replace(",", "."))
-    else:
-        t = float(t_text)
+    t = prevod(t_entry)
     # M - molární hmotnost
-    m = 56.1
-
+    m = prevod(mol_entry)
     # Hmotnost oleje
-    v_text = v_entry.get()
-    if v_text.__contains__(","):
-        v = float(v_text.replace(",", "."))
-    else:
-        v = float(v_text)
-
+    v = prevod(v_entry)
     # Index
-
-    f1_text = f1_entry.get()
-    if f1_text.__contains__(","):
-        f1 = float(f1_text.replace(",", "."))
-    else:
-        f1 = float(f1_text)
+    f1 = prevod(f1_entry)
 
     # výpočet
-
     tan = round(((eq1 - b) * t * m * f1) / (v * f1), 3)
-
     vysledek_label["text"] = tan
 
 
 def vypocitej_enter(event):
     # EQ1 - spotřeba titru
-    eq1_text = eq1_entry.get()
-    if eq1_text.__contains__(","):
-        eq1 = float(eq1_text.replace(",", "."))
-    else:
-        eq1 = float(eq1_text)
+    eq1 = prevod(eq1_entry)
     # B - Blank
-    b_text = b_entry.get()
-    if b_text.__contains__(","):
-        b = float(b_text.replace(",", "."))
-    else:
-        b = float(b_text)
+    b = prevod(b_entry)
     # T - koncetrace titru
-    t_text = t_entry.get()
-    if t_text.__contains__(","):
-        t = float(t_text.replace(",", "."))
-    else:
-        t = float(t_text)
+    t = prevod(t_entry)
     # M - molární hmotnost
-    m = 56.1
-    # m_text = m_entry.get()
-    # if m_text.__contains__(","):
-    #     m = float(m_text.replace(",", "."))
-    # else:
-    #     m = float(m_text)
-
+    m = prevod(mol_entry)
     # V - Hmotnost oleje
-    v_text = v_entry.get()
-    if v_text.__contains__(","):
-        v = float(v_text.replace(",", "."))
-    else:
-        v = float(v_text)
-
+    v = prevod(v_entry)
     # Index
-
-    f1_text = f1_entry.get()
-    if f1_text.__contains__(","):
-        f1 = float(f1_text.replace(",", "."))
-    else:
-        f1 = float(f1_text)
+    f1 = prevod(f1_entry)
 
     # výpočet enter
-
     tan = round(((eq1 - b) * t * m * f1) / (v * f1), 3)
-
     vysledek_label["text"] = tan
 
 
 # Entr pro výpočet
-
 window.bind("<Return>", vypocitej_enter)
 
 
@@ -258,9 +210,9 @@ b_entry.grid(row=1, column=1)
 t_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, justify=CENTER)
 t_entry.grid(row=2, column=1)
 
-m_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, justify=CENTER)
-m_entry.insert(0, "56.1")
-m_entry.grid(row=3, column=1)
+mol_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, justify=CENTER)
+mol_entry.insert(0, 56.1)
+mol_entry.grid(row=3, column=1)
 
 v_entry = Entry(main_frame1, background=main_color, font=main_font, width=15, justify=CENTER)
 v_entry.grid(row=4, column=1)
