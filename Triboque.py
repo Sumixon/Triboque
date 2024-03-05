@@ -110,17 +110,9 @@ window.bind("<Return>", vypocitej_enter)
 
 def hustota():
     # Hmotnost 1
-    m0_text = m0_entry.get()
-    if m0_text.__contains__(","):
-        m0 = float(m0_text.replace(",", "."))
-    else:
-        m0 = float(m0_text)
+    m0 = prevod(m0_entry)
     # Hmotnost 2
-    m1_text = m1_entry.get()
-    if m1_text.__contains__(","):
-        m1 = float(m1_text.replace(",", "."))
-    else:
-        m1 = float(m1_text)
+    m1 = prevod(m1_entry)
     # Rozdíl hmotností
 
     mm = round(m1 - m0, 4)
