@@ -28,7 +28,7 @@ nb.add(tab2, text="Roztoky")
 tab3 = tkinter.Frame(window, borderwidth=1, highlightcolor="black", background=main_color)
 nb.add(tab3, text="O programu")
 
-nb.select(tab2)
+nb.select(tab1)
 nb.enable_traversal()
 
 # Logo
@@ -325,5 +325,9 @@ vysledek_popis_label.grid(row=6, column=2, sticky=W)
 vysledek_label1 = Label(main_frame2, text=" ", background=main_color, font=vysledek_font, padx=0, pady=15,
                         highlightthickness=1, highlightbackground="black", width=16)
 vysledek_label1.place(x=28, y=120)
+
+# ######TAB3########
+copyright_ = Label(main_frame3, text="© Denev Roman ", background=main_color, font=vysledek_font, padx=0, pady=15)
+copyright_ .place(x=435, y=-15)
 
 window.mainloop()
