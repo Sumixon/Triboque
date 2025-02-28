@@ -35,8 +35,8 @@ nb.enable_traversal()
 logo = PhotoImage(file="img/sumixon130x50_black.png")
 # Vzorec
 vzorec = PhotoImage(file="img/vzorec.png")
-# Piknometr
-piknometr = PhotoImage(file="img/pikno100x145.png")
+# pyknometr
+pyknometr = PhotoImage(file="img/pikno100x145.png")
 
 
 # Funkce
@@ -252,11 +252,11 @@ f1_label.grid(row=5, column=2, sticky=W)
 # Popisy proměnných
 # ######TAB2########
 
-m0_label = Label(main_frame2, text="Hmotnost suchého piknometru (g)", background=main_color, font=main_font,
+m0_label = Label(main_frame2, text="Hmotnost suchého pyknometru (g)", background=main_color, font=main_font,
                  padx=15, pady=5)
 m0_label.grid(row=0, column=2, sticky=W)
 
-m1_label = Label(main_frame2, text="Hmotnost pinkometru s kapalinou (g)", background=main_color, font=main_font,
+m1_label = Label(main_frame2, text="Hmotnost pyknometru s kapalinou (g)", background=main_color, font=main_font,
                  padx=15, pady=5)
 m1_label.grid(row=1, column=2, sticky=W)
 
@@ -268,8 +268,8 @@ m_label.grid(row=2, column=2, sticky=W)
 
 vzorec_label = Label(main_frame2, image=vzorec, background=main_color, pady=10)
 vzorec_label.place(x=270, y=100)
-piknometr_label = Label(main_frame2, image=piknometr, background=main_color)
-piknometr_label.place(x=480, y=120)
+pyknometr_label = Label(main_frame2, image=pyknometr, background=main_color)
+pyknometr_label.place(x=480, y=120)
 
 # Dropdownmenu
 # ######TAB2########
@@ -282,13 +282,13 @@ parametry = [
 ]
 vaha = StringVar(main_frame2)
 vaha.set(parametry[0])
-piknom = OptionMenu(main_frame2, vaha, *parametry)
-piknom.config(font=main_font, bg=main_color, fg="black", pady=5, padx=5, bd=1,
+pyknom = OptionMenu(main_frame2, vaha, *parametry)
+pyknom.config(font=main_font, bg=main_color, fg="black", pady=5, padx=5, bd=1,
               activebackground=main_color, activeforeground='blue', width=4, borderwidth=0, highlightbackground="black",
               highlightthickness=1, relief="sunken")
-piknom.place(x=250, y=250)
+pyknom.place(x=250, y=250)
 
-drop_label = Label(main_frame2, text="Zvolte objem piknometru ! (ml)", background=main_color, font=main_font,
+drop_label = Label(main_frame2, text="Zvolte objem pyknometru ! (ml)", background=main_color, font=main_font,
                    padx=15, pady=5)
 drop_label.place(x=230, y=210)
 
